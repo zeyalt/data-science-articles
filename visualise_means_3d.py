@@ -1,6 +1,4 @@
 # Import modules
-import chart_studio.plotly as py
-import chart_studio
 import numpy as np
 import pandas as pd
 import plotly.express as px
@@ -15,12 +13,6 @@ def compute_arithmetic_mean(x, y):
 
 def compute_geometric_mean(x, y):
     return (x*y)**0.5
-
-# Connect with chartstudio
-username = 'zeyalt' # Add your username
-api_key = 'j6vY7DJ6EPjEiEjxrIsj' # Add your api key 
-
-chart_studio.tools.set_credentials_file(username = username, api_key = api_key)
 
 # Generate precision and recall values between 0 and 1
 precision = np.arange(0.05, 1.05, 0.05)
@@ -49,6 +41,3 @@ fig = px.scatter_3d(df_reshaped, x='Precision', y='Recall', z='Value',
 fig.update_layout(margin=dict(l=0, r=0, b=0, t=0))
 fig.update_traces(marker_size=5)
 fig.show()
-
-# Save plot into Chartstudio Cloud
-py.plot(fig, filename="Comparing_Means", auto_open=True)
